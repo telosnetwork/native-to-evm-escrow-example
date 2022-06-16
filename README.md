@@ -29,17 +29,21 @@ To use it run:
 
 `node serializeEVMTransaction.js`
 
-Which will give you back the raw transaction data and the EVM Address linked to the `prods.evm` native account, something like:
+Which will give you back the raw transaction data and the EVM Address linked to the `prods.evm` native account, as well as a `cleos propose` command something like:
 
 ```SERIALIZED_TX: f8450685746050fb5682a0f49420027f1e6f597c9e2049ddd5ffb0040aa47f613580a44eb665af0000000000....```
 
 ```LINKED_ADDRESS: 0xe7209d65c5BB05cdf799b20fF0EC09E691FC3f12```
+
+```CLEOS_PROPOSE: cleos --url https://testnet.telos.net multisig propose escrowld '[{"actor": "prods.evm", "permission": "active"}]' '[.....```
 
 This script is just a few lines of code that can easily be adapted to call other methods of the contract such as `setMaxDeposits` or `transferOwnership` or even another contract entirely ! 
 
 ### 2. Setup & propose a Native multisig
 
 Our Native multisig will call the eosio.evm contract's `raw` action with the serialized EVM transaction and the linked address
+
+Run the CLEOS_PROPOSE command from our previous script or make your own using the SERIALIZED_TX and LINKED_ADDRESS.
 
 You could also use EOSJS to create the Multisig proposal directly from your script.
 
