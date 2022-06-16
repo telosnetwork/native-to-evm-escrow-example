@@ -23,7 +23,7 @@ In our case the native account will be `prods.evm` and the sender address will b
 
 ### 1. Prepare the data with `generateEVMActions`
 
-The generateEVMActions scripts populates & serializes the EVM Transaction for you and uses that to store an action that calls eosio.evm `raw(...)` method into a file. This example uses the `setLockDuration` function of the TelosEscrow EVM Contract which can only be called by the linked EVM address of the native `prods.evm` account. 
+The generateEVMActions script populates & serializes the EVM Transaction for you and uses that to store an action that calls eosio.evm `raw(...)` method into a file. This example uses the `setLockDuration` function of the TelosEscrow EVM Contract which can only be called by the linked EVM address of the native `prods.evm` account. 
 
 To use it run:
 
@@ -31,7 +31,7 @@ To use it run:
 
 It will generate an `actions.json` file in the `output` folder
 
-_This script is just a few lines of code that can easily be adapted to call other methods of the contract such as `setMaxDeposits` or `transferOwnership` or even another contract entirely !_
+_This script, taken from our Native EVM Actions repository can easily be adapted to call other methods of the contract such as `setMaxDeposits` or `transferOwnership` or even another contract entirely !_
 
 ### 2. Prepare the permissions with `generatePermissions`
 
