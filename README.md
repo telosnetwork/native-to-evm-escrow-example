@@ -8,7 +8,7 @@ Use [this repository]() for an example implementation with the TelosEscrow Contr
 
 This repository requires NodeJS 14+ as well as EOSIO's `cleos` & `keosk` and a running `nodeos` instance
 
-**/!\ The EVM address linked to your native account MUST have enough TLOS in balance to pay for gas fees !**
+**/!\ The EVM address linked to the prods.evm native account MUST have enough TLOS in balance to pay for gas fees !**
 
 ## Install
 
