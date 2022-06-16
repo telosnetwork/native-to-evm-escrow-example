@@ -3,11 +3,10 @@ import  { TelosEvmApi } from "@telosnetwork/telosevm-js";
 import fetch from "node-fetch";
 import  Transaction from '@ethereumjs/tx'
 import  {BigNumber, ethers}  from  'ethers';
-import 'dotenv/config';
 import contractABI from './abi/TelosEscrow.js'
 
 const nativeAccount = "prods.evm;
-const contractAddress = process.env.EVM_CONTRACT_ADDRESS;
+const contractAddress = "0x20027f1e6f597c9e2049ddd5ffb0040aa47f6135";
 
 const provider = ethers.getDefaultProvider();
 const contract = new ethers.Contract(contractAddress, contractABI, provider);
