@@ -31,7 +31,7 @@ To use it run:
 
 It will generate an `actions.json` file in the `output` folder
 
-_This script, taken from our Native EVM Actions repository can easily be adapted to call other methods of the contract such as `setMaxDeposits` or `transferOwnership` or even another contract entirely !_
+_This script, taken from our [Native to EVM Transaction repository](https://github.com/telosnetwork/native-to-evm-transaction) can easily be adapted to call other methods of the contract such as `setMaxDeposits` or `transferOwnership` or even another contract entirely !_
 
 ### 2. Prepare the permissions with `generatePermissions`
 
