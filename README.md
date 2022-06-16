@@ -1,6 +1,6 @@
-# Native to Telos Ecrow
+# Native to Telos Ecrow Example
 
-This repository contains a script to generate the EVM transaction data of a call to the setLockDuration() function of the TelosEscrow EVM contracts.
+This repository contains a script to generate the EVM transaction data of a call to the `setLockDuration()` function of the `TelosEscrow` EVM contract.
 It will also go over how-to propose a multisig in order to send that transaction from Native Telos.
 
 ## Requirements
