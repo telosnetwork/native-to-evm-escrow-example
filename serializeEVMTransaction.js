@@ -55,6 +55,10 @@ const evmApi = new TelosEvmApi({
 
     // PRINT IT OUT
     console.log("SERIALIZED_TX: ", raw);
+<<<<<<< HEAD
     console.log("LINKED_ADDRESS: ", linkedAddress.replace(/^0x/, ''));
 
+=======
+    console.log("SENDER: ", linkedAddress.replace(/^0x/, ''));
+>>>>>>> 6d947565e07c792f910053c7d39e4e5e2f5e80d0
 })()
