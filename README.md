@@ -45,5 +45,8 @@ Our Native multisig will call the eosio.evm contract's `raw` action with the ser
 
 Run the CLEOS_PROPOSE command from our previous script or make your own using the SERIALIZED_TX and LINKED_ADDRESS.
 
+```cleos --url https://testnet.telos.net multisig propose escrowld '[{"actor": "prods.evm", "permission": "active"}]' '[{"actor": "prods.evm", "permission": "active"}]' eosio.evm raw '{"ram_payer": "prods.evm", "tx": "f8450f85746050fb568266369420027f1e6f597c9e2049ddd5ffb0040aa47f613580a44eb665af0000000000000000000000000000000000000000000000000000000000000e10", "sender": "7c56101c01eaaece3d1bb330910c8e9183b39dbd", "estimate_gas": false }' -p yournativeaccount```
+
+
 You could also use EOSJS to create the Multisig proposal directly from your script.
 
