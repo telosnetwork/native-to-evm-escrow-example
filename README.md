@@ -21,30 +21,32 @@ In our case the native account will be `prods.evm` and the sender address will b
 
 ### 1. Get the EVM Transaction data
 
-The serializeEVMTransaction scripts populates & serializes the EVM Transaction for you. This example uses the setLockDuration function of the TelosEscrow EVM Contract which can only be called by the linked EVM address of the native prods.evm (eosio) account.
-
+The serializeEVMTransaction scripts populates & serializes the EVM Transaction for you and stores it into a file. This example uses the setLockDuration function of the TelosEscrow EVM Contract which can only be called by the linked EVM address of the native prods.evm (eosio) account. 
 
 To use it run:
 
 `node serializeEVMTransaction.js`
 
-Which will give you back the raw transaction data and the EVM Address linked to the `prods.evm` native account, as well as a `cleos propose` command something like:
-
-```SERIALIZED_TX: f8450685746050fb5682a0f49420027f1e6f597c9e2049ddd5ffb0040aa47f613580a44eb665af0000000000....```
-
-```LINKED_ADDRESS: 0xe7209d65c5BB05cdf799b20fF0EC09E691FC3f12```
-
-```CLEOS_PROPOSE: cleos --url https://testnet.telos.net multisig propose escrowld '[{"actor": "prods.evm", "permission": "active"}]' '[.....```
+It will generate an actions.json file in the output folder
 
 This script is just a few lines of code that can easily be adapted to call other methods of the contract such as `setMaxDeposits` or `transferOwnership` or even another contract entirely ! 
 
-### 2. Setup & propose a Native multisig
+### 2. Prepare the Native multisig
 
-Our Native multisig will call the eosio.evm contract's `raw` action with the serialized EVM transaction and the linked address
+To send a multisig, we need to setup the list of signers' permissions. In this Telos Escrow case our signers are the current active BPs.
+The generateSignerList script saves those BPs permissions into a file.
 
-Run the CLEOS_PROPOSE command from our previous script or make your own using the SERIALIZED_TX and LINKED_ADDRESS.
+To use it run:
 
-```cleos --url https://testnet.telos.net multisig propose escrowld '[{"actor": "prods.evm", "permission": "active"}]' '[{"actor": "prods.evm", "permission": "active"}]' eosio.evm raw '{"ram_payer": "prods.evm", "tx": "f8450f85746050fb568266369420027f1e6f597c9e2049ddd5ffb0040aa47f613580a44eb665af0000000000000000000000000000000000000000000000000000000000000e10", "sender": "7c56101c01eaaece3d1bb330910c8e9183b39dbd", "estimate_gas": false }' -p yournativeaccount```
+`node generateSignerList.js`
+
+It will generate a signers.json file in the output folder
+
+### 3. Setup & propose a Native multisig
+
+Run the following cleos command, replacing `yournativeaccount` with your Telos native account name.
+
+```cleos --url https://testnet.telos.net multisig propose escrowld ./output/signers.json ./output/actions.js -p yournativeaccount```
 
 
 You could also use EOSJS to create the Multisig proposal directly from your script.
