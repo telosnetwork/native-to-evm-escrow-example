@@ -32,9 +32,11 @@ Which will give you back the raw transaction data and the EVM Address linked to 
 
 ```LINKED_ADDRESS: 0xe7209d65c5BB05cdf799b20fF0EC09E691FC3f12```
 
-This script is just a few lines of code that can easily be adapted to call other methods of the contract such as `setMaxDeposits` or `transferOwnership` or even another contract entirely ! You could also use EOSJS to create the Multisig proposal directly from your script.
+This script is just a few lines of code that can easily be adapted to call other methods of the contract such as `setMaxDeposits` or `transferOwnership` or even another contract entirely ! 
 
 ### 2. Setup a Native multisig
 
 Our Native multisig will call the eosio.evm contract's `raw` action with the serialized EVM transaction and the linked address
+
+You could also use EOSJS to create the Multisig proposal directly from your script.
 
