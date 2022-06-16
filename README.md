@@ -31,7 +31,7 @@ To use it run:
 
 It will generate an `actions.json` file in the `output` folder
 
-This script is just a few lines of code that can easily be adapted to call other methods of the contract such as `setMaxDeposits` or `transferOwnership` or even another contract entirely ! 
+_This script is just a few lines of code that can easily be adapted to call other methods of the contract such as `setMaxDeposits` or `transferOwnership` or even another contract entirely !_
 
 ### 2. Prepare the permissions with `generatePermissions`
 
