@@ -53,10 +53,26 @@ const evmApi = new TelosEvmApi({
         return;
     }
     raw = raw.replace(/^0x/, '');
+    
+   var auth = {
+        "threshold": 1,
+        "keys": [],
+        "waits": [],
+        "accounts": [
+            {
+                "permission": {
+                    "actor": "prods.evm",
+                    "permission": "active"
+                },
+                "weight": 1
+            }
+        ]
+    }
+
 
     // PRINT IT OUT
     console.log("SERIALIZED_TX: ", raw);
     console.log("LINKED_ADDRESS: ", linkedAddress.replace(/^0x/, ''));
-    console.log("CLEOS COMMAND: ",  'cleos --url https://testnet.telos.caleos.io/ push action eosio.evm raw \'{"ram_payer": '+nativeAccount+', "tx": "'+ raw +'" , "estimate_gas": false, "sender": "'+ linkedAddress.replace(/^0x/, '') +'"}\' -p ' + nativeAccount);
+    console.log("CLEOS COMMAND: ",  'cleos --url https://testnet.telos.caleos.io/ push action eosio.evm raw \'{"account": "'+nativeAccount+'", "permission": "active", "parent": "", "auth": '+ auth +',  "ram_payer": '+nativeAccount+', "tx": "'+ raw +'" , "estimate_gas": false, "sender": "'+ linkedAddress.replace(/^0x/, '') +'"}\' -p ' + nativeAccount);
 
 })()
