@@ -29,7 +29,7 @@ To use it run:
 
 `node serializeEVMTransaction.js`
 
-Which will give you back the raw transaction data and the EVM Address linked to your native account, something like:
+Which will give you back the raw transaction data and the EVM Address linked to the `prods.evm` native account, something like:
 
 ```SERIALIZED_TX: f8450685746050fb5682a0f49420027f1e6f597c9e2049ddd5ffb0040aa47f613580a44eb665af0000000000....```
 
