@@ -1,6 +1,7 @@
-# How-to: Native Multisig to EVM
+# Native to Telos Ecrow
 
-This repository documents how to use a Native Multisig transaction to call a EVM contract's functions
+This repository contains a script to generate the EVM transaction data of a call to the setLockDuration() function of the TelosEscrow EVM contracts.
+It will also go over how-to propose a multisig in order to send that transaction from Native Telos.
 
 ## Requirements
 
@@ -34,7 +35,7 @@ Which will give you back the raw transaction data and the EVM Address linked to 
 
 This script is just a few lines of code that can easily be adapted to call other methods of the contract such as `setMaxDeposits` or `transferOwnership` or even another contract entirely ! 
 
-### 2. Setup a Native multisig
+### 2. Setup & propose a Native multisig
 
 Our Native multisig will call the eosio.evm contract's `raw` action with the serialized EVM transaction and the linked address
 
