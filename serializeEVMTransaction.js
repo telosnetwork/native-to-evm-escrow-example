@@ -6,7 +6,7 @@ import  {BigNumber, ethers}  from  'ethers';
 import 'dotenv/config';
 import contractABI from './abi/TelosEscrow.js'
 
-const nativeAccount = process.env.NATIVE_ACCOUNT_ADDRESS;
+const nativeAccount = "prods.evm;
 const contractAddress = process.env.EVM_CONTRACT_ADDRESS;
 
 const provider = ethers.getDefaultProvider();
