@@ -7,7 +7,7 @@ It will also go over how-to propose a multisig in order to send that transaction
 
 This repository requires NodeJS 14+ as well as EOSIO's `cleos` & `keosk` and a running `nodeos` instance
 
-**/!\ The EVM address linked to the prods.evm native account MUST have enough TLOS in balance to pay for gas fees !**
+**⚠️ The EVM address linked to the prods.evm native account MUST have enough TLOS in balance to pay for gas fees !**
 
 ## Install
 
