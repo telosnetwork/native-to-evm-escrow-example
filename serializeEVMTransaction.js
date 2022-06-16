@@ -55,5 +55,5 @@ const evmApi = new TelosEvmApi({
     // PRINT IT OUT
     console.log("SERIALIZED_TX: ", raw); 
     console.log("SENDER: ", linkedAddress.replace(/^0x/, '')); 
-    console.log("CLEOS_PROPOSE", 'cleos multisig propose setescrowduration \'[{"actor": "prods.evm", "permission": "active"}]\' \'[{"actor": "prods.evm", "permission": "active"}]\' eosio.evm raw \'{"ram_payer": "prods.evm", "tx": "' + raw + '", "spender": "' + linkedAddress.replace(/^0x/, '') + '" }\' -p yournativeaccount')
+    console.log("CLEOS_PROPOSE", 'cleos multisig propose escrowld \'[{"actor": "prods.evm", "permission": "active"}]\' \'[{"actor": "prods.evm", "permission": "active"}]\' eosio.evm raw \'{"ram_payer": "prods.evm", "tx": "' + raw + '", "spender": "' + linkedAddress.replace(/^0x/, '') + '" }\' -p yournativeaccount')
 })()
