@@ -4,13 +4,10 @@ import fetch from "node-fetch";
 import  Transaction from '@ethereumjs/tx'
 import  {BigNumber, ethers}  from  'ethers';
 import 'dotenv/config';
-import contractABI from './abi/MintableToken.js'
-// PARTIAL ABI W/ THE HELLO WORLD METHOD WE WANT TO CALL
-
+import contractABI from './abi/TelosEscrow.js'
 
 const nativeAccount = process.env.NATIVE_ACCOUNT_ADDRESS;
 const contractAddress = process.env.EVM_CONTRACT_ADDRESS;
-const amount = (100 * (10 ** 18)).toString();
 
 const provider = ethers.getDefaultProvider();
 const contract = new ethers.Contract(contractAddress, contractABI, provider);
@@ -39,7 +36,7 @@ const evmApi = new TelosEvmApi({
 
 // POPULATE TRANSACTION
     try {
-        var unsignedTrx =  await contract.populateTransaction.mint(process.env.EVM_MINT_TO_ADDRESS, amount);
+        var unsignedTrx =  await contract.populateTransaction.setLockDuration(3600);
     } catch(e) {
         console.log(e.message);
         return;
