@@ -4,20 +4,13 @@ import  { TelosEvmApi } from "@telosnetwork/telosevm-js";
 import fetch from "node-fetch";
 import  Transaction from '@ethereumjs/tx'
 import  {BigNumber, ethers}  from  'ethers';
-import contractABI from './abi/TelosEscrow.js'
+import contractABI from './abi/TelosEscrow.js';
+import 'dotenv/config' from 'dotenv';
 
-const NETWORK_ENDPOINT = "https://testnet.telos.caleos.io/";
-const NATIVE_ACCOUNT = "prods.evm";
-const CONTRACT_ADDRESS = "0x20027f1e6f597c9e2049ddd5ffb0040aa47f6135";
-
-// PRODUCTION
-//
-// const NETWORK_ENDPOINT = "https://mainnet.telos.net/";
-// const NATIVE_ACCOUNT = "prods.evm";
-// const CONTRACT_ADDRESS = "";
+const nativeAccount = process.env.NATIVE_ACCOUNT; 
 
 const provider = ethers.getDefaultProvider();
-const contract = new ethers.Contract(CONTRACT_ADDRESS, contractABI, provider);
+const contract = new ethers.Contract(process.env.CONTRACT_ADDRESS, contractABI, provider);
 const evmApi = new TelosEvmApi({
     endpoint: "https://testnet.telos.net",
     chainId: '41',
@@ -31,7 +24,7 @@ const evmApi = new TelosEvmApi({
     
     // POPULATE EVM TRANSACTION
     try {
-        var evmAccount = await evmApi.telos.getEthAccountByTelosAccount(NATIVE_ACCOUNT);
+        var evmAccount = await evmApi.telos.getEthAccountByTelosAccount(nativeAccount);
         var evmAddress = evmAccount.address;
         var nonce = parseInt(await evmApi.telos.getNonce(evmAddress), 16);
     } catch(e) {
@@ -63,7 +56,7 @@ const evmApi = new TelosEvmApi({
     raw = raw.replace(/^0x/, '');
     
     // SAVE THE NATIVE TRANSACTION TO FILE
-    exec('cleos --url '+ NETWORK_ENDPOINT +' push action eosio.evm raw \'{"ram_payer": '+NATIVE_ACCOUNT+', "tx": "'+ raw +'" , "estimate_gas": false, "sender": "'+ evmAddress.replace(/^0x/, '') +'"}\' --expiration 86400 -sjd --json-file output/transaction.json', (err, stdout, stderr) => {
+    exec('cleos --url '+ process.env.NETWORK_ENDPOINT +' push action eosio.evm raw \'{"ram_payer": '+nativeAccount+', "tx": "'+ raw +'" , "estimate_gas": false, "sender": "'+ evmAddress.replace(/^0x/, '') +'"}\' --expiration 86400 -sjd --json-file output/transaction.json', (err, stdout, stderr) => {
         if (err) {
             console.error(err)
         } else {
