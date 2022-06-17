@@ -19,7 +19,7 @@ This repository requires NodeJS 14+ as well as EOSIO's `cleos` & `keosk`
 
 Sending transactions to EVM requires the use of the eosio.evm contract's `raw(...)` action.
 
-This method takes in the serialized **EVM Transaction data**, the **native account** that will pay the RAM and the **sender address** that transaction will be sent from on EVM.
+This method takes in the serialized **EVM Transaction data**, the **native account** that will pay the RAM and the **sender address** which the transaction will be sent from on EVM.
 
 In our case the native account will be `prods.evm` and the sender address will be the EVM address linked to that native account, which also owns the TelosEscrow contract and hence is the only one that can modify the settings.
 
