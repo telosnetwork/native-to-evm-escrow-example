@@ -52,5 +52,5 @@ Run the following cleos command, replacing `YOUR_NATIVE_ACCOUNT` with your Telos
 
 ```cleos --url https://testnet.telos.net multisig propose_trx PROPOSAL ./output/permissions.json ./output/transaction.json YOUR_NATIVE_ACCOUNT```
 
-You could also use EOSJS to create the Multisig proposal directly from your script.
+You could also use the [EOSJS library](https://developers.eos.io/manuals/eosjs/latest/index) to create the Multisig proposal directly from your script.
 
