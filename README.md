@@ -2,7 +2,7 @@
 
 This repository contains two scripts to help you construct a `cleos propose` command:
 
-- `generateEVMTransavction`, that serializes the EVM transaction data of a call to the `setLockDuration()` function of the `TelosEscrow` EVM contract
+- `generateEVMTransaction`, that serializes the EVM transaction data of a call to the `setLockDuration()` function of the `TelosEscrow` EVM contract
 - `generatePermissions`, that retreives the Telos BPs and adds them to a permissions array
 
 ## Requirements
