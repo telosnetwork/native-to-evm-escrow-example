@@ -16,7 +16,7 @@ This repository requires NodeJS 14+ as well as EOSIO's `cleos` & `keosk` and a r
 
 ## Rundown
 
-Sending transactions to EVM requires the use of the eosio.evm contract's `raw(...)` method.
+Sending transactions to EVM requires the use of the eosio.evm contract's `raw(...)` action.
 
 This method takes in the serialized **EVM Transaction data**, the **native account** that will pay the RAM and the **sender address** that transaction will be sent from on EVM.
 
