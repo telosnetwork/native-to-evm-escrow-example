@@ -2,7 +2,7 @@
 
 This repository contains two example scripts to help you construct a `cleos propose` command containing an EVM transaction:
 
-- `generateEVMTransaction`, that serializes the EVM transaction data of a call to the `setLockDuration()` function of the `TelosEscrow` EVM contract with a parameter of 3600 seconds
+- `generateEVMTransaction`, that serializes the EVM transaction data of a call to the `setLockDuration()` function of the `TelosEscrow` EVM contract
 - `generatePermissions`, that retreives the Telos BPs and adds them to a permissions array
 
 ## Requirements
@@ -25,7 +25,7 @@ In our case the native account will be `prods.evm` and the sender address will b
 
 ### 1. Prepare the data with `generateEVMTransaction`
 
-The generateEVMTransaction script populates & serializes an EVM transaction and uses it to populate a native transaction with an action that calls eosio.evm `raw(...)` method. This example uses the `setLockDuration` function of the TelosEscrow EVM Contract which can only be called by the linked EVM address of the native `prods.evm` account. 
+The generateEVMTransaction script populates & serializes an EVM transaction and uses it to populate a native transaction with an action that calls eosio.evm `raw(...)` method. This example uses the `setLockDuration` function of the TelosEscrow EVM Contract  with a parameter of `3600` seconds. 
 
 To use it run:
 
