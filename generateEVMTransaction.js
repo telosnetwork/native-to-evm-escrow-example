@@ -60,6 +60,10 @@ const evmApi = new TelosEvmApi({
         if (err) {
             console.error(err)
         } else {
+            // WAIT 3s
+            await new Promise((resolve) => {
+                setTimeout(resolve, 3000);
+            });
             // MODIFY IT
             fs.readFile('output/transaction.json', 'utf8', (err, data) => {
                 if (err) {
