@@ -5,7 +5,7 @@ import fetch from "node-fetch";
 import  Transaction from '@ethereumjs/tx'
 import  {BigNumber, ethers}  from  'ethers';
 import contractABI from './abi/TelosEscrow.js';
-import 'dotenv/config' from 'dotenv';
+import dotenv from 'dotenv/config';
 
 const nativeAccount = process.env.NATIVE_ACCOUNT; 
 
