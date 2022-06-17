@@ -1,4 +1,4 @@
-# Native Multisig to EVM Ecrow Example
+# Native Multisig to EVM - Telos Ecrow Example
 
 This repository contains two example scripts to help you construct a `cleos propose` command containing an EVM transaction:
 
