@@ -25,7 +25,7 @@ In our case the native account will be `prods.evm` and the sender address will b
 
 ### 1. Prepare the data with `generateEVMTransaction`
 
-The generateEVMTransaction script populates & serializes an EVM transaction and uses it to generate a native transaction with an action that calls eosio.evm `raw(...)` method. This example uses the `setLockDuration` function of the TelosEscrow EVM Contract which can only be called by the linked EVM address of the native `prods.evm` account. 
+The generateEVMTransaction script populates & serializes an EVM transaction and uses it to populate a native transaction with an action that calls eosio.evm `raw(...)` method. This example uses the `setLockDuration` function of the TelosEscrow EVM Contract which can only be called by the linked EVM address of the native `prods.evm` account. 
 
 To use it run:
 
