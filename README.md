@@ -12,6 +12,7 @@ This repository requires NodeJS 14+ as well as EOSIO's `cleos` & `keosk` and a r
 
 ## Install
 
+`npm install`
 
 ## Rundown
 
@@ -21,15 +22,15 @@ This method takes in the serialized **EVM Transaction data**, the **native accou
 
 In our case the native account will be `prods.evm` and the sender address will be the EVM address linked to that native account, which also owns the TelosEscrow contract and hence is the only one that can modify the settings.
 
-### 1. Prepare the data with `generateEVMActions`
+### 1. Prepare the data with `generateEVMTransaction`
 
-The generateEVMActions script populates & serializes the EVM Transaction for you and uses that to store an action that calls eosio.evm `raw(...)` method into a file. This example uses the `setLockDuration` function of the TelosEscrow EVM Contract which can only be called by the linked EVM address of the native `prods.evm` account. 
+The generateEVMTransaction script populates & serializes an EVM transaction and uses it to generate a native transaction with an action that calls eosio.evm `raw(...)` method. This example uses the `setLockDuration` function of the TelosEscrow EVM Contract which can only be called by the linked EVM address of the native `prods.evm` account. 
 
 To use it run:
 
-`node generateEVMActions.js`
+`node generateEVMTransaction.js`
 
-It will generate an `actions.json` file in the `output` folder
+It will generate an `transaction.json` file in the `output` folder
 
 _This script, taken from our [Native to EVM Transaction repository](https://github.com/telosnetwork/native-to-evm-transaction) can easily be adapted to call other methods of the contract such as `setMaxDeposits` or `transferOwnership` or even another contract entirely !_
 
@@ -48,8 +49,7 @@ It will generate a `permissions.json` file in the `output` folder
 
 Run the following cleos command, replacing `yournativeaccount` with your Telos native account name.
 
-```cleos --url https://testnet.telos.net multisig propose escrowld ./output/permissions.json ./output/actions.js -p yournativeaccount```
-
+```cleos --url https://testnet.telos.net multisig propose_trx escrowld ./output/permissions.json ./output/transaction.js yournativeaccount```
 
 You could also use EOSJS to create the Multisig proposal directly from your script.
 
