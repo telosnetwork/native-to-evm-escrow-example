@@ -37,7 +37,7 @@ const evmApi = new TelosEvmApi({
     const gasLimit = 26166;
 
     try {
-        var unsignedTrx =  await contract.populateTransaction.setLockDuration(3600);
+        var unsignedTrx =  await contract.populateTransaction.setLockDuration(process.env.DURATION);
     } catch(e) {
         console.log(e.message);
         return;
