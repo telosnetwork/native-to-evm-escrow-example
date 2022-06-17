@@ -50,7 +50,7 @@ It will generate a `permissions.json` file in the `output` folder
 
 Run the following cleos command, replacing `YOUR_NATIVE_ACCOUNT` with your Telos native account name and `PROPOSAL` by your proposal's name.
 
-```cleos --url https://testnet.telos.net multisig propose_trx PROPOSAL ./output/permissions.json ./output/transaction.js YOUR_NATIVE_ACCOUNT```
+```cleos multisig propose_trx PROPOSAL ./output/permissions.json ./output/transaction.js YOUR_NATIVE_ACCOUNT```
 
 You could also use EOSJS to create the Multisig proposal directly from your script.
 
