@@ -10,6 +10,11 @@ const NETWORK_ENDPOINT = "https://testnet.telos.caleos.io/";
 const NATIVE_ACCOUNT = "prods.evm";
 const CONTRACT_ADDRESS = "0x20027f1e6f597c9e2049ddd5ffb0040aa47f6135";
 
+
+// const NETWORK_ENDPOINT = "https://mainnet.telos.net/";
+// const NATIVE_ACCOUNT = "prods.evm";
+// const CONTRACT_ADDRESS = "";
+
 const provider = ethers.getDefaultProvider();
 const contract = new ethers.Contract(CONTRACT_ADDRESS, contractABI, provider);
 const evmApi = new TelosEvmApi({
