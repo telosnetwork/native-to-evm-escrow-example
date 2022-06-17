@@ -1,4 +1,4 @@
-# Native to Telos Ecrow Example
+# Native to EVM Ecrow Example
 
 This repository contains two example scripts to help you construct a `cleos propose` command containing an EVM transaction:
 
