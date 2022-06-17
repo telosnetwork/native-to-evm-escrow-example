@@ -1,6 +1,6 @@
 # Native to Telos Ecrow Example
 
-This repository contains two scripts to help you construct a `cleos propose` command:
+This repository contains two example scripts to help you construct a `cleos propose` command:
 
 - `generateEVMTransaction`, that serializes the EVM transaction data of a call to the `setLockDuration()` function of the `TelosEscrow` EVM contract with a parameter of 3600 seconds
 - `generatePermissions`, that retreives the Telos BPs and adds them to a permissions array
