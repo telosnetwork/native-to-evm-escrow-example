@@ -21,8 +21,7 @@ const evmApi = new TelosEvmApi({
 });
 
 (async () => {
-    
-    // POPULATE EVM TRANSACTION
+    // Get the linked EVM address & its nonce
     try {
         var evmAccount = await evmApi.telos.getEthAccountByTelosAccount(nativeAccount);
         var evmAddress = evmAccount.address;
@@ -31,11 +30,13 @@ const evmApi = new TelosEvmApi({
         console.log(e.message);
         return;
     }
-
+    
+    // Get gas data
     const feeData = await provider.getFeeData()
     const gasPrice = BigNumber.from(`0x${await evmApi.telos.getGasPrice()}`)
     const gasLimit = 26166;
 
+    // Use ether to populate the transaction with a call to the relevant method
     try {
         var unsignedTrx =  await contract.populateTransaction.setLockDuration(process.env.DURATION);
     } catch(e) {
@@ -46,7 +47,7 @@ const evmApi = new TelosEvmApi({
     unsignedTrx.gasLimit = gasLimit;
     unsignedTrx.gasPrice = gasPrice;
 
-    // SERIALIZE IT
+    // Serialize the data using ethers utils
     try {
         var raw = await ethers.utils.serializeTransaction(unsignedTrx);
     } catch(e) {
