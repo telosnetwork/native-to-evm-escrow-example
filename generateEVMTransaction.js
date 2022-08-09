@@ -57,7 +57,7 @@ const evmApi = new TelosEvmApi({
     raw = raw.replace(/^0x/, '');
     
     // SAVE THE NATIVE TRANSACTION TO FILE
-    exec('cleos --url '+ process.env.NETWORK_ENDPOINT +' push action eosio.evm raw \'{"ram_payer": '+nativeAccount+', "tx": "'+ raw +'" , "estimate_gas": false, "sender": "'+ evmAddress.replace(/^0x/, '') +'"}\' --expiration 86400 -sjd --json-file output/transaction.json', async (err, stdout, stderr) => {
+    exec('cleos --url '+ process.env.NETWORK_ENDPOINT +' push action eosio.evm raw \'{"ram_payer": '+nativeAccount+', "tx": "'+ raw +'" , "estimate_gas": false, "sender": "'+ evmAddress.replace(/^0x/, '') +'"}\' -p prods.evm --expiration 86400 -sjd --json-file output/transaction.json', async (err, stdout, stderr) => {
         if (err) {
             console.error(err)
         } else {
@@ -66,7 +66,7 @@ const evmApi = new TelosEvmApi({
                 setTimeout(resolve, 5000);
             });
             // MODIFY IT
-            fs.readFile('output/transaction.json', 'utf8', (err, data) => {
+            fs.readFile(process.env.OUTPUT_FOLDER + '/transaction.json', 'utf8', (err, data) => {
                 if (err) {
                     console.error(err);
                 } else {
@@ -74,11 +74,11 @@ const evmApi = new TelosEvmApi({
                     jsonData.actions[0].data = jsonData.actions[0].hex_data;
                     delete jsonData.actions[0].hex_data;
                     jsonData.transaction_extensions = [];
-                    fs.writeFile('output/transaction.json', JSON.stringify(jsonData), (err) => {
+                    fs.writeFile(process.env.OUTPUT_FOLDER + '/transaction.json', JSON.stringify(jsonData), (err) => {
                         if (err) {
                             console.error(err);
                         } else {
-                            console.log('Transaction JSON generated in output/transaction.json')
+                            console.log('Transaction JSON generated in '+ process.env.OUTPUT_FOLDER + '/transaction.json')
                         }
 
                     });
