@@ -10,7 +10,7 @@
   "author": "Thomas Cuvillier",
   "license": "ISC",
   "dependencies": {
-    "@telosnetwork/telosevm-js": "^0.2.7",
+    "@telosnetwork/telosevm-js": "^0.2.8",
     "axios": "^0.27.2",
     "child_process": "^1.0.2",
     "dotenv": "^16.0.1",

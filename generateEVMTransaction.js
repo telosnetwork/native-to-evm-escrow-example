@@ -57,7 +57,7 @@ const evmApi = new TelosEvmApi({
     raw = raw.replace(/^0x/, '');
     
     // SAVE THE NATIVE TRANSACTION TO FILE
-    exec('cleos --url '+ process.env.NETWORK_ENDPOINT +' push action eosio.evm raw \'{"ram_payer": '+nativeAccount+', "tx": "'+ raw +'" , "estimate_gas": false, "sender": "'+ evmAddress.replace(/^0x/, '') +'"}\' --expiration 86400 -sjd --json-file output/transaction.json', (err, stdout, stderr) => {
+    exec('cleos --url '+ process.env.NETWORK_ENDPOINT +' push action eosio.evm raw \'{"ram_payer": '+nativeAccount+', "tx": "'+ raw +'" , "estimate_gas": false, "sender": "'+ evmAddress.replace(/^0x/, '') +'"}\' --expiration 86400 -sjd --json-file output/transaction.json', async (err, stdout, stderr) => {
         if (err) {
             console.error(err)
         } else {
