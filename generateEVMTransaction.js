@@ -12,8 +12,8 @@ const nativeAccount = process.env.NATIVE_ACCOUNT;
 const provider = ethers.getDefaultProvider();
 const contract = new ethers.Contract(process.env.CONTRACT_ADDRESS, contractABI, provider);
 const evmApi = new TelosEvmApi({
-    endpoint: "https://testnet.telos.net",
-    chainId: '41',
+    endpoint: process.env.NETWORK_ENDPOINT,
+    chainId: process.env.CHAIN,
     ethPrivateKeys: [],
     fetch: fetch,
     telosContract: 'eosio.evm',
